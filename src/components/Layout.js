@@ -1,6 +1,6 @@
 import Nav from "./Nav";
 
-const Layout = ({Children}) => {
+const Layout = ({children}) => {
     return(
         <div 
         className= 'container mx-auto' 
@@ -9,7 +9,7 @@ const Layout = ({Children}) => {
             <div className='text-center text-5xl my-5'>"My Awesome Blog"</div>
                 <Nav />
                 <div>
-                    {Children}
+                    {children}
                 </div>
             </div>
 

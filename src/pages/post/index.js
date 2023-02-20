@@ -1,7 +1,28 @@
 import Layout from "../../components/Layout";
 import CommentCard from "./components/CommentCard";
+import { useParams } from 'react-router-dom';
+import { useEffect } from "react";
 
 const Post = () => {
+    const { id }= useParams();
+    const getPost = async ( id ) => {
+        fetch(`${process.env.REACT_APP_SUPABASE_PROJECT_URL}/rest/v1/posts?id=eq.${id}&select=*`,
+        {
+            method: "GET",
+            headers:{ 
+                apikey: REACT_APP_SUPABASE_ANON_KEY,
+                Authorization: REACT_APP_SUPABASE_ANON_KEY,
+            },
+        }
+        )
+    .then((res) => res.json())
+    .then((response) => {console.log(response)});
+    }
+    useEffect(() => {
+        getPost(id);
+    },[id]);
+
+
     return(
         <Layout>
             <div className="border border-black rounded p-2 my-2">

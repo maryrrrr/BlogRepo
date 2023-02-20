@@ -7,6 +7,11 @@ const Home = ()=> {
 
     const[lastPosts,setLastPosts]= useState([]);
     const[error,setError]= useState(null);
+
+    const getSession= async() => {
+        const session = await supabase.auth.getSession();
+    }
+
     const getAllPosts = async() => {
         const { data: posts, error } = await supabase.from('posts').select('*')
         setLastPosts(posts);
